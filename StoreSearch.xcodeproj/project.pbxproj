@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		D93257FD1BF16DB50061EB12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D93257FC1BF16DB50061EB12 /* main.m */; };
 		D93258001BF16DB50061EB12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D93257FF1BF16DB50061EB12 /* AppDelegate.m */; };
-		D93258031BF16DB50061EB12 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D93258021BF16DB50061EB12 /* ViewController.m */; };
-		D93258061BF16DB50061EB12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93258041BF16DB50061EB12 /* Main.storyboard */; };
 		D93258081BF16DB50061EB12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D93258071BF16DB50061EB12 /* Assets.xcassets */; };
 		D932580B1BF16DB50061EB12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93258091BF16DB50061EB12 /* LaunchScreen.storyboard */; };
 		D93258161BF16DB50061EB12 /* StoreSearchUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93258151BF16DB50061EB12 /* StoreSearchUITests.m */; };
+		D93258231BF16E9B0061EB12 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D93258211BF16E9B0061EB12 /* SearchViewController.m */; };
+		D93258241BF16E9B0061EB12 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93258221BF16E9B0061EB12 /* SearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,15 +31,15 @@
 		D93257FC1BF16DB50061EB12 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D93257FE1BF16DB50061EB12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D93257FF1BF16DB50061EB12 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D93258011BF16DB50061EB12 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D93258021BF16DB50061EB12 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		D93258051BF16DB50061EB12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D93258071BF16DB50061EB12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D932580A1BF16DB50061EB12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D932580C1BF16DB50061EB12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D93258111BF16DB50061EB12 /* StoreSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93258151BF16DB50061EB12 /* StoreSearchUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreSearchUITests.m; sourceTree = "<group>"; };
 		D93258171BF16DB50061EB12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D93258201BF16E9B0061EB12 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		D93258211BF16E9B0061EB12 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		D93258221BF16E9B0061EB12 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +83,10 @@
 			children = (
 				D93257FE1BF16DB50061EB12 /* AppDelegate.h */,
 				D93257FF1BF16DB50061EB12 /* AppDelegate.m */,
-				D93258011BF16DB50061EB12 /* ViewController.h */,
-				D93258021BF16DB50061EB12 /* ViewController.m */,
-				D93258041BF16DB50061EB12 /* Main.storyboard */,
+				D93258201BF16E9B0061EB12 /* SearchViewController.h */,
+				D93258211BF16E9B0061EB12 /* SearchViewController.m */,
 				D93258071BF16DB50061EB12 /* Assets.xcassets */,
+				D93258221BF16E9B0061EB12 /* SearchViewController.xib */,
 				D93258091BF16DB50061EB12 /* LaunchScreen.storyboard */,
 				D932580C1BF16DB50061EB12 /* Info.plist */,
 				D93257FB1BF16DB50061EB12 /* Supporting Files */,
@@ -193,7 +193,7 @@
 			files = (
 				D932580B1BF16DB50061EB12 /* LaunchScreen.storyboard in Resources */,
 				D93258081BF16DB50061EB12 /* Assets.xcassets in Resources */,
-				D93258061BF16DB50061EB12 /* Main.storyboard in Resources */,
+				D93258241BF16E9B0061EB12 /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,8 +211,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D93258031BF16DB50061EB12 /* ViewController.m in Sources */,
 				D93258001BF16DB50061EB12 /* AppDelegate.m in Sources */,
+				D93258231BF16E9B0061EB12 /* SearchViewController.m in Sources */,
 				D93257FD1BF16DB50061EB12 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,14 +236,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D93258041BF16DB50061EB12 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D93258051BF16DB50061EB12 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D93258091BF16DB50061EB12 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

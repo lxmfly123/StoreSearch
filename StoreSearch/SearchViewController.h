@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SearchViewController.h
 //  StoreSearch
 //
 //  Created by FLY.lxm on 11/10/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface SearchViewController : UIViewController
 
 @end
-
