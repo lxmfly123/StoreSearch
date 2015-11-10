@@ -8,6 +8,10 @@
 
 #import "SearchViewController.h"
 #import "SearchResult.h"
+#import "SearchResultCell.h"
+
+static NSString * const SearchResultCellIdentifier = @"SearchResultCell";
+static NSString * const NothingFoundCellIdentifier = @"NothingFoundCell";
 
 @interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
@@ -25,6 +29,13 @@
     [super viewDidLoad];
     
     self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.tableView.rowHeight = 80;
+    
+    UINib *cellNib = [UINib nibWithNibName:SearchResultCellIdentifier bundle:nil];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:SearchResultCellIdentifier];
+    
+    cellNib = [UINib nibWithNibName:@"NothingFoundCell" bundle:nil];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:NothingFoundCellIdentifier];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,22 +69,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *reuseIdentifier = @"SearchResult";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
-    }
-
     if ([_searchResults count] == 0) {
-        cell.textLabel.text = @"No Result Found!";
-        cell.detailTextLabel.text = @"";
+        return [tableView dequeueReusableCellWithIdentifier:NothingFoundCellIdentifier];
     } else {
+        SearchResultCell *cell = [tableView dequeueReusableCellWithIdentifier:SearchResultCellIdentifier];
         SearchResult *searchResult = (SearchResult *)_searchResults[indexPath.row];
-        cell.textLabel.text = searchResult.name;
-        cell.detailTextLabel.text = searchResult.artistName;
+        cell.nameLabel.text = searchResult.name;
+        cell.artistNameLabel.text = searchResult.artistName;
+        return cell;
     }
-    
-    return cell;
 }
 
 #pragma mark - SearchBarDelegate
@@ -93,19 +97,19 @@
     }
     [self.tableView reloadData];
 }
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    _searchResults = nil;
-    NSLog(@"lll");
-    [self.tableView reloadData]; 
-}
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    if ([searchText length] == 0) {
-        _searchResults = nil;
-        NSLog(@"sss");
-        [self.tableView reloadData];
-    }
-}
+//- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+//    _searchResults = nil;
+//    NSLog(@"lll");
+//    [self.tableView reloadData]; 
+//}
+//
+//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+//    if ([searchText length] == 0) {
+//        _searchResults = nil;
+//        [self.tableView reloadData];
+//    }
+//}
 
 - (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
     return UIBarPositionTopAttached;

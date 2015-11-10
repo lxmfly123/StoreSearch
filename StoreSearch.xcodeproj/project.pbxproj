@@ -15,6 +15,9 @@
 		D93258231BF16E9B0061EB12 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D93258211BF16E9B0061EB12 /* SearchViewController.m */; };
 		D93258241BF16E9B0061EB12 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93258221BF16E9B0061EB12 /* SearchViewController.xib */; };
 		D93258271BF18FDD0061EB12 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D93258261BF18FDD0061EB12 /* SearchResult.m */; };
+		D96ACF511BF1CC7000CF540F /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D96ACF501BF1CC6F00CF540F /* SearchResultCell.m */; };
+		D96ACF531BF1CF6500CF540F /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D96ACF521BF1CF6500CF540F /* NothingFoundCell.xib */; };
+		D9EB16E31BF1A0130072E4B6 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9EB16E21BF1A0130072E4B6 /* SearchResultCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,10 @@
 		D93258221BF16E9B0061EB12 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		D93258251BF18FDD0061EB12 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
 		D93258261BF18FDD0061EB12 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
+		D96ACF4F1BF1CC6F00CF540F /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
+		D96ACF501BF1CC6F00CF540F /* SearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultCell.m; sourceTree = "<group>"; };
+		D96ACF521BF1CF6500CF540F /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
+		D9EB16E21BF1A0130072E4B6 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +97,12 @@
 				D93258261BF18FDD0061EB12 /* SearchResult.m */,
 				D93258201BF16E9B0061EB12 /* SearchViewController.h */,
 				D93258211BF16E9B0061EB12 /* SearchViewController.m */,
+				D96ACF4F1BF1CC6F00CF540F /* SearchResultCell.h */,
+				D96ACF501BF1CC6F00CF540F /* SearchResultCell.m */,
 				D93258071BF16DB50061EB12 /* Assets.xcassets */,
 				D93258221BF16E9B0061EB12 /* SearchViewController.xib */,
+				D9EB16E21BF1A0130072E4B6 /* SearchResultCell.xib */,
+				D96ACF521BF1CF6500CF540F /* NothingFoundCell.xib */,
 				D93258091BF16DB50061EB12 /* LaunchScreen.storyboard */,
 				D932580C1BF16DB50061EB12 /* Info.plist */,
 				D93257FB1BF16DB50061EB12 /* Supporting Files */,
@@ -198,6 +209,8 @@
 			files = (
 				D932580B1BF16DB50061EB12 /* LaunchScreen.storyboard in Resources */,
 				D93258081BF16DB50061EB12 /* Assets.xcassets in Resources */,
+				D9EB16E31BF1A0130072E4B6 /* SearchResultCell.xib in Resources */,
+				D96ACF531BF1CF6500CF540F /* NothingFoundCell.xib in Resources */,
 				D93258241BF16E9B0061EB12 /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +231,7 @@
 			files = (
 				D93258001BF16DB50061EB12 /* AppDelegate.m in Sources */,
 				D93258231BF16E9B0061EB12 /* SearchViewController.m in Sources */,
+				D96ACF511BF1CC7000CF540F /* SearchResultCell.m in Sources */,
 				D93258271BF18FDD0061EB12 /* SearchResult.m in Sources */,
 				D93257FD1BF16DB50061EB12 /* main.m in Sources */,
 			);
@@ -398,6 +412,7 @@
 				D932581C1BF16DB50061EB12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D932581D1BF16DB50061EB12 /* Build configuration list for PBXNativeTarget "StoreSearchUITests" */ = {
 			isa = XCConfigurationList;
@@ -406,6 +421,7 @@
 				D932581F1BF16DB50061EB12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
