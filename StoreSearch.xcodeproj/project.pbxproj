@@ -15,6 +15,7 @@
 		D93258231BF16E9B0061EB12 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D93258211BF16E9B0061EB12 /* SearchViewController.m */; };
 		D93258241BF16E9B0061EB12 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93258221BF16E9B0061EB12 /* SearchViewController.xib */; };
 		D93258271BF18FDD0061EB12 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D93258261BF18FDD0061EB12 /* SearchResult.m */; };
+		D95B54A51BF40D8700C1EC34 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95B54A41BF40D8700C1EC34 /* LoadingCell.xib */; };
 		D96ACF511BF1CC7000CF540F /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D96ACF501BF1CC6F00CF540F /* SearchResultCell.m */; };
 		D96ACF531BF1CF6500CF540F /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D96ACF521BF1CF6500CF540F /* NothingFoundCell.xib */; };
 		D9EB16E31BF1A0130072E4B6 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9EB16E21BF1A0130072E4B6 /* SearchResultCell.xib */; };
@@ -46,6 +47,7 @@
 		D93258221BF16E9B0061EB12 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		D93258251BF18FDD0061EB12 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
 		D93258261BF18FDD0061EB12 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
+		D95B54A41BF40D8700C1EC34 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		D96ACF4F1BF1CC6F00CF540F /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
 		D96ACF501BF1CC6F00CF540F /* SearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultCell.m; sourceTree = "<group>"; };
 		D96ACF521BF1CF6500CF540F /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				D93258221BF16E9B0061EB12 /* SearchViewController.xib */,
 				D9EB16E21BF1A0130072E4B6 /* SearchResultCell.xib */,
 				D96ACF521BF1CF6500CF540F /* NothingFoundCell.xib */,
+				D95B54A41BF40D8700C1EC34 /* LoadingCell.xib */,
 				D93258091BF16DB50061EB12 /* LaunchScreen.storyboard */,
 				D932580C1BF16DB50061EB12 /* Info.plist */,
 				D93257FB1BF16DB50061EB12 /* Supporting Files */,
@@ -176,6 +179,7 @@
 				TargetAttributes = {
 					D93257F71BF16DB50061EB12 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = KMFX7RZB2E;
 					};
 					D93258101BF16DB50061EB12 = {
 						CreatedOnToolsVersion = 7.1;
@@ -209,6 +213,7 @@
 			files = (
 				D932580B1BF16DB50061EB12 /* LaunchScreen.storyboard in Resources */,
 				D93258081BF16DB50061EB12 /* Assets.xcassets in Resources */,
+				D95B54A51BF40D8700C1EC34 /* LoadingCell.xib in Resources */,
 				D9EB16E31BF1A0130072E4B6 /* SearchResultCell.xib in Resources */,
 				D96ACF531BF1CF6500CF540F /* NothingFoundCell.xib in Resources */,
 				D93258241BF16E9B0061EB12 /* SearchViewController.xib in Resources */,
@@ -351,10 +356,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = StoreSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fly.StoreSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -362,10 +370,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = StoreSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fly.StoreSearch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
