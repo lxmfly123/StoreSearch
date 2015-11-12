@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController">
             <connections>
                 <outlet property="searchBar" destination="wg9-VK-AgL" id="Yc3-RW-G40"/>
+                <outlet property="segmentedContol" destination="DXW-YE-YbG" id="my8-at-GMO"/>
                 <outlet property="tableView" destination="zMV-Jt-T6C" id="CmY-aE-ySO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -35,14 +36,39 @@
                         <outlet property="delegate" destination="-1" id="rWR-wU-Crb"/>
                     </connections>
                 </searchBar>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bFS-cG-Fsn">
+                    <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="REQ-S2-KmY"/>
+                    </constraints>
+                    <items>
+                        <navigationItem id="x1u-qO-2JO">
+                            <nil key="title"/>
+                            <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="DXW-YE-YbG">
+                                <rect key="frame" x="150" y="7" width="300" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Apps"/>
+                                    <segment title="Music"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="-1" eventType="valueChanged" id="M3O-Oe-MKi"/>
+                                </connections>
+                            </segmentedControl>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="wg9-VK-AgL" secondAttribute="trailing" id="9q5-AG-XBq"/>
+                <constraint firstItem="bFS-cG-Fsn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Cfv-Na-szA"/>
                 <constraint firstItem="zMV-Jt-T6C" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PCx-90-j2a"/>
                 <constraint firstItem="wg9-VK-AgL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Qd7-8N-PnH"/>
+                <constraint firstAttribute="trailing" secondItem="bFS-cG-Fsn" secondAttribute="trailing" id="ZhV-ew-3PW"/>
                 <constraint firstItem="zMV-Jt-T6C" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Zpx-B1-Vld"/>
                 <constraint firstItem="wg9-VK-AgL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="g2y-wH-lNH"/>
+                <constraint firstItem="bFS-cG-Fsn" firstAttribute="top" secondItem="wg9-VK-AgL" secondAttribute="bottom" id="oRs-mO-Prb"/>
                 <constraint firstAttribute="bottom" secondItem="zMV-Jt-T6C" secondAttribute="bottom" id="toa-Ww-e6U"/>
                 <constraint firstAttribute="trailing" secondItem="zMV-Jt-T6C" secondAttribute="trailing" id="wr5-Zz-XaG"/>
             </constraints>

@@ -20,7 +20,7 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SellerName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7x-Og-h6b">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ArtistName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7x-Og-h6b">
                         <rect key="frame" x="90" y="42" width="230" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -32,9 +32,9 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="artistNameLabel" destination="U7x-Og-h6b" id="qEy-3t-Cv0"/>
                 <outlet property="artworkImageView" destination="fbT-AI-U2g" id="kWB-bU-nDB"/>
                 <outlet property="nameLabel" destination="ZG2-Og-Gm3" id="97h-mL-475"/>
-                <outlet property="sellerNameLabel" destination="U7x-Og-h6b" id="B11-Od-KAW"/>
             </connections>
             <point key="canvasLocation" x="525" y="254"/>
         </tableViewCell>

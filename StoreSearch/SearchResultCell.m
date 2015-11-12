@@ -7,6 +7,7 @@
 //
 
 #import "SearchResultCell.h"
+#import "SearchResult.h"
 
 @implementation SearchResultCell
 
@@ -22,6 +23,15 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)configureForSearchResult:(SearchResult *)searchResult {
+    self.nameLabel.text = searchResult.name ? searchResult.name : @"unknown";
+    if ([searchResult.kind isEqualToString:@"song"] || [searchResult.kind isEqualToString:@"music-video"]) {
+        self.artistNameLabel.text = [NSString stringWithFormat:@"%@(%@)",searchResult.artistName, searchResult.genres[0]];
+        return;
+    }
+    self.artistNameLabel.text = searchResult.genres[0];
 }
 
 @end

@@ -11,9 +11,10 @@
 @interface SearchResult : NSObject
 
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *sellerName;
+@property (nonatomic, copy) NSString *artistName;
 @property (nonatomic, copy) NSString *artworkURL60;
-@property (nonatomic, copy) NSString *artworkURL512;
+@property (nonatomic, copy) NSString *artworkURL100;
+@property (nonatomic, copy) NSString *artworkURL512; //仅用于 App
 @property (nonatomic, copy) NSString *trackViewUrl;
 @property (nonatomic, copy) NSString *kind;
 @property (nonatomic, copy) NSString *currency;
