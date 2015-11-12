@@ -20,7 +20,5 @@
 @property (nonatomic, copy) NSString *currency;
 @property (nonatomic, copy) NSString *price;
 @property (nonatomic, copy) NSArray *genres;
-//@property (nonatomic, strong) UIImage *image;
-//@property (nonatomic, copy)
 
 @end

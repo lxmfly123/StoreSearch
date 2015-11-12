@@ -141,9 +141,9 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     
     searchResult.name = resultDictionary[@"trackCensoredName"];
     searchResult.artistName = resultDictionary[@"artistName"];
-    searchResult.artworkURL60 = resultDictionary[@"artworkURL60"];
-    searchResult.artworkURL100 = resultDictionary[@"artworkURL100"];
-    searchResult.artworkURL512 = resultDictionary[@"artworkURL512"];
+    searchResult.artworkURL60 = resultDictionary[@"artworkUrl60"];
+    searchResult.artworkURL100 = resultDictionary[@"artworkUrl100"];
+    searchResult.artworkURL512 = resultDictionary[@"artworkUrl512"];
     searchResult.trackViewUrl = resultDictionary[@"trackViewUrl"];
     searchResult.kind = resultDictionary[@"kind"];
     searchResult.currency = resultDictionary[@"currency"];
@@ -159,8 +159,8 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     
     searchResult.name = resultDictionary[@"trackCensoredName"];
     searchResult.artistName = resultDictionary[@"artistName"];
-    searchResult.artworkURL60 = resultDictionary[@"artworkURL60"];
-    searchResult.artworkURL100 = resultDictionary[@"artworkURL100"];
+    searchResult.artworkURL60 = resultDictionary[@"artworkUrl60"];
+    searchResult.artworkURL100 = resultDictionary[@"artworkUrl100"];
     searchResult.trackViewUrl = resultDictionary[@"trackViewUrl"];
     searchResult.kind = resultDictionary[@"kind"];
     searchResult.currency = resultDictionary[@"currency"];

@@ -8,6 +8,7 @@
 
 #import "SearchResultCell.h"
 #import "SearchResult.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @implementation SearchResultCell
 
@@ -27,11 +28,21 @@
 
 - (void)configureForSearchResult:(SearchResult *)searchResult {
     self.nameLabel.text = searchResult.name ? searchResult.name : @"unknown";
-    if ([searchResult.kind isEqualToString:@"song"] || [searchResult.kind isEqualToString:@"music-video"]) {
-        self.artistNameLabel.text = [NSString stringWithFormat:@"%@(%@)",searchResult.artistName, searchResult.genres[0]];
-        return;
-    }
+    [self.artworkImageView setImageWithURL:[NSURL URLWithString:searchResult.artworkURL100] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
+    
+//    if ([searchResult.kind isEqualToString:@"song"] || [searchResult.kind isEqualToString:@"music-video"]) {
+//        self.artistNameLabel.text = [NSString stringWithFormat:@"%@(%@)",searchResult.artistName, searchResult.genres[0]];
+//        return;
+//    }
+    
     self.artistNameLabel.text = searchResult.genres[0];
+}
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    [self.artworkImageView cancelImageRequestOperation];
+    self.nameLabel.text = nil;
+    self.artistNameLabel.text = nil;
 }
 
 @end
