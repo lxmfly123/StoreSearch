@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BA656EB9144098ABA2BEA4C /* libPods-StoreSearch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57157DC3EB950D25193E1D02 /* libPods-StoreSearch.a */; };
 		D93257FD1BF16DB50061EB12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D93257FC1BF16DB50061EB12 /* main.m */; };
 		D93258001BF16DB50061EB12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D93257FF1BF16DB50061EB12 /* AppDelegate.m */; };
 		D93258081BF16DB50061EB12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D93258071BF16DB50061EB12 /* Assets.xcassets */; };
@@ -32,6 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		479947DB118EEE6765AB9AF3 /* Pods-StoreSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreSearch/Pods-StoreSearch.debug.xcconfig"; sourceTree = "<group>"; };
+		5296521CE507A64C79155715 /* Pods-StoreSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoreSearch/Pods-StoreSearch.release.xcconfig"; sourceTree = "<group>"; };
+		57157DC3EB950D25193E1D02 /* libPods-StoreSearch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoreSearch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93257F81BF16DB50061EB12 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93257FC1BF16DB50061EB12 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D93257FE1BF16DB50061EB12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BA656EB9144098ABA2BEA4C /* libPods-StoreSearch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +77,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29452EB29C351F20799970CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57157DC3EB950D25193E1D02 /* libPods-StoreSearch.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3C14F0A1A5155273E140D266 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				479947DB118EEE6765AB9AF3 /* Pods-StoreSearch.debug.xcconfig */,
+				5296521CE507A64C79155715 /* Pods-StoreSearch.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D93257EF1BF16DB50061EB12 = {
 			isa = PBXGroup;
 			children = (
 				D93257FA1BF16DB50061EB12 /* StoreSearch */,
 				D93258141BF16DB50061EB12 /* StoreSearchUITests */,
 				D93257F91BF16DB50061EB12 /* Products */,
+				3C14F0A1A5155273E140D266 /* Pods */,
+				29452EB29C351F20799970CD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,9 +161,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D932581A1BF16DB50061EB12 /* Build configuration list for PBXNativeTarget "StoreSearch" */;
 			buildPhases = (
+				D99A0E9CA22F241A8F271909 /* Check Pods Manifest.lock */,
 				D93257F41BF16DB50061EB12 /* Sources */,
 				D93257F51BF16DB50061EB12 /* Frameworks */,
 				D93257F61BF16DB50061EB12 /* Resources */,
+				95E2CD0BC7FB6B46486E28A6 /* Embed Pods Frameworks */,
+				2BEDA96E4CE1AF49627EA14E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -228,6 +255,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2BEDA96E4CE1AF49627EA14E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StoreSearch/Pods-StoreSearch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95E2CD0BC7FB6B46486E28A6 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StoreSearch/Pods-StoreSearch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D99A0E9CA22F241A8F271909 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D93257F41BF16DB50061EB12 /* Sources */ = {
@@ -354,6 +429,7 @@
 		};
 		D932581B1BF16DB50061EB12 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 479947DB118EEE6765AB9AF3 /* Pods-StoreSearch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -368,6 +444,7 @@
 		};
 		D932581C1BF16DB50061EB12 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5296521CE507A64C79155715 /* Pods-StoreSearch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
