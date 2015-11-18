@@ -9,6 +9,7 @@
 #import "SearchViewController.h"
 #import "SearchResult.h"
 #import "SearchResultCell.h"
+#import "DetailViewController.h"
 #import <AFNetworking/AFNetworking.h>
 
 static NSString * const SearchResultCellIdentifier = @"SearchResultCell";
@@ -40,9 +41,12 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.layer.cornerRadius = 10;
+    
     [self.searchBar becomeFirstResponder];
     
     self.tableView.contentInset = UIEdgeInsetsMake(108, 0, 0, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.rowHeight = 80;
     
     UINib *cellNib = [UINib nibWithNibName:SearchResultCellIdentifier bundle:nil];
@@ -79,7 +83,7 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     
     NSString *encodedText = [text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
     
-    NSURL *searchURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&country=cn&entity=%@", encodedText, categoryName]];
+    NSURL *searchURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&country=cn&entity=%@&limit=30", encodedText, categoryName]];
     return searchURL;
 }
 
@@ -149,6 +153,7 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     searchResult.currency = resultDictionary[@"currency"];
     searchResult.price = resultDictionary[@"formattedPrice"];
     searchResult.genres = (NSArray *)resultDictionary[@"genres"];
+    searchResult.storeUrl = resultDictionary[@"trackViewUrl"];
 //    searchResult.image = [UIImage imageWithData:<#(nonnull NSData *)#>]
     
     return searchResult;
@@ -164,8 +169,9 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     searchResult.trackViewUrl = resultDictionary[@"trackViewUrl"];
     searchResult.kind = resultDictionary[@"kind"];
     searchResult.currency = resultDictionary[@"currency"];
-    searchResult.price = resultDictionary[@"formattedPrice"];
+    searchResult.price = @"免费";
     searchResult.genres = @[resultDictionary[@"primaryGenreName"]];
+    searchResult.storeUrl = resultDictionary[@"trackViewUrl"];
     //    searchResult.image = [UIImage imageWithData:<#(nonnull NSData *)#>]
     
     return searchResult;
@@ -200,6 +206,9 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
         }];
         
         [_queue addOperation:operation];
+    } else {
+        _searchResults = nil;
+        [self.tableView reloadData];
     }
 }
 
@@ -215,10 +224,15 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.searchBar resignFirstResponder];
+    
+    DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    detailViewController.searchResult = (SearchResult *)_searchResults[indexPath.row];
+    [detailViewController presentInParentViewController:self];
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    if ([tableView numberOfRowsInSection:0] > 0) {
+    if ([_searchResults count] > 0) {
         return indexPath;
     }
     return nil; 
@@ -306,6 +320,15 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 //    if ([searchText length] == 0) {
 //        _searchResults = nil;
 //        [self.tableView reloadData];
+//    }
+//}
+
+//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+//    if ([searchText length] == 0) {
+//        []
+//        if (!_isLoading) {
+//            <#statements#>
+//        }
 //    }
 //}
 

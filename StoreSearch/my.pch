@@ -1,0 +1,17 @@
+//
+//  my.pch
+//  StoreSearch
+//
+//  Created by FLY.lxm on 11/13/15.
+//  Copyright © 2015 FLY.lxm. All rights reserved.
+//
+
+#ifndef my_pch
+#define my_pch
+
+#import <QuartzCore/QuartzCore.h>
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* my_pch */

@@ -18,7 +18,8 @@
 @property (nonatomic, copy) NSString *trackViewUrl;
 @property (nonatomic, copy) NSString *kind;
 @property (nonatomic, copy) NSString *currency;
-@property (nonatomic, copy) NSString *price;
+@property (nonatomic, copy) NSString *price; //仅用于 App
 @property (nonatomic, copy) NSArray *genres;
+@property (nonatomic, copy) NSString *storeUrl;
 
 @end

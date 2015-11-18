@@ -19,7 +19,12 @@
 		D95B54A51BF40D8700C1EC34 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95B54A41BF40D8700C1EC34 /* LoadingCell.xib */; };
 		D96ACF511BF1CC7000CF540F /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D96ACF501BF1CC6F00CF540F /* SearchResultCell.m */; };
 		D96ACF531BF1CF6500CF540F /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D96ACF521BF1CF6500CF540F /* NothingFoundCell.xib */; };
+		D9A451D71BFB26FA000438F6 /* LandscapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A451D51BFB26FA000438F6 /* LandscapeViewController.m */; };
+		D9A451D81BFB26FA000438F6 /* LandscapeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9A451D61BFB26FA000438F6 /* LandscapeViewController.xib */; };
 		D9EB16E31BF1A0130072E4B6 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9EB16E21BF1A0130072E4B6 /* SearchResultCell.xib */; };
+		D9F539FF1BF575BF00FC6484 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F539FD1BF575BF00FC6484 /* DetailViewController.m */; };
+		D9F53A001BF575BF00FC6484 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9F539FE1BF575BF00FC6484 /* DetailViewController.xib */; };
+		D9FB3C2E1BF5E73C004F9EF0 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FB3C2D1BF5E73C004F9EF0 /* GradientView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +60,16 @@
 		D96ACF4F1BF1CC6F00CF540F /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
 		D96ACF501BF1CC6F00CF540F /* SearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultCell.m; sourceTree = "<group>"; };
 		D96ACF521BF1CF6500CF540F /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
+		D9A451D41BFB26FA000438F6 /* LandscapeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandscapeViewController.h; sourceTree = "<group>"; };
+		D9A451D51BFB26FA000438F6 /* LandscapeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandscapeViewController.m; sourceTree = "<group>"; };
+		D9A451D61BFB26FA000438F6 /* LandscapeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandscapeViewController.xib; sourceTree = "<group>"; };
 		D9EB16E21BF1A0130072E4B6 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
+		D9F539FC1BF575BF00FC6484 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		D9F539FD1BF575BF00FC6484 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		D9F539FE1BF575BF00FC6484 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		D9FB3C2B1BF5BEB5004F9EF0 /* my.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = my.pch; sourceTree = "<group>"; };
+		D9FB3C2C1BF5E73C004F9EF0 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
+		D9FB3C2D1BF5E73C004F9EF0 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,13 +137,21 @@
 				D93258261BF18FDD0061EB12 /* SearchResult.m */,
 				D93258201BF16E9B0061EB12 /* SearchViewController.h */,
 				D93258211BF16E9B0061EB12 /* SearchViewController.m */,
+				D9F539FC1BF575BF00FC6484 /* DetailViewController.h */,
+				D9F539FD1BF575BF00FC6484 /* DetailViewController.m */,
 				D96ACF4F1BF1CC6F00CF540F /* SearchResultCell.h */,
 				D96ACF501BF1CC6F00CF540F /* SearchResultCell.m */,
+				D9A451D41BFB26FA000438F6 /* LandscapeViewController.h */,
+				D9A451D51BFB26FA000438F6 /* LandscapeViewController.m */,
+				D9FB3C2C1BF5E73C004F9EF0 /* GradientView.h */,
+				D9FB3C2D1BF5E73C004F9EF0 /* GradientView.m */,
 				D93258071BF16DB50061EB12 /* Assets.xcassets */,
+				D9A451D61BFB26FA000438F6 /* LandscapeViewController.xib */,
 				D93258221BF16E9B0061EB12 /* SearchViewController.xib */,
 				D9EB16E21BF1A0130072E4B6 /* SearchResultCell.xib */,
 				D96ACF521BF1CF6500CF540F /* NothingFoundCell.xib */,
 				D95B54A41BF40D8700C1EC34 /* LoadingCell.xib */,
+				D9F539FE1BF575BF00FC6484 /* DetailViewController.xib */,
 				D93258091BF16DB50061EB12 /* LaunchScreen.storyboard */,
 				D932580C1BF16DB50061EB12 /* Info.plist */,
 				D93257FB1BF16DB50061EB12 /* Supporting Files */,
@@ -141,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				D93257FC1BF16DB50061EB12 /* main.m */,
+				D9FB3C2B1BF5BEB5004F9EF0 /* my.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -240,9 +263,11 @@
 			files = (
 				D932580B1BF16DB50061EB12 /* LaunchScreen.storyboard in Resources */,
 				D93258081BF16DB50061EB12 /* Assets.xcassets in Resources */,
+				D9F53A001BF575BF00FC6484 /* DetailViewController.xib in Resources */,
 				D95B54A51BF40D8700C1EC34 /* LoadingCell.xib in Resources */,
 				D9EB16E31BF1A0130072E4B6 /* SearchResultCell.xib in Resources */,
 				D96ACF531BF1CF6500CF540F /* NothingFoundCell.xib in Resources */,
+				D9A451D81BFB26FA000438F6 /* LandscapeViewController.xib in Resources */,
 				D93258241BF16E9B0061EB12 /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,6 +339,9 @@
 				D96ACF511BF1CC7000CF540F /* SearchResultCell.m in Sources */,
 				D93258271BF18FDD0061EB12 /* SearchResult.m in Sources */,
 				D93257FD1BF16DB50061EB12 /* main.m in Sources */,
+				D9FB3C2E1BF5E73C004F9EF0 /* GradientView.m in Sources */,
+				D9A451D71BFB26FA000438F6 /* LandscapeViewController.m in Sources */,
+				D9F539FF1BF575BF00FC6484 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +462,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = StoreSearch/my.pch;
 				INFOPLIST_FILE = StoreSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fly.StoreSearch;
@@ -449,6 +479,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = StoreSearch/my.pch;
 				INFOPLIST_FILE = StoreSearch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fly.StoreSearch;

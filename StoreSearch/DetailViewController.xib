@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
+            <connections>
+                <outlet property="artistNameLabel" destination="Rmn-fV-WLo" id="cZg-jH-B8a"/>
+                <outlet property="artworkImageView" destination="tGw-br-c7y" id="PuD-n1-Swx"/>
+                <outlet property="genreLabel" destination="ovk-yb-jK4" id="PHQ-Br-KOB"/>
+                <outlet property="kindLabel" destination="2F1-rI-lFU" id="l7M-Lx-fOL"/>
+                <outlet property="nameLabel" destination="YbS-uq-tyZ" id="yfa-L8-tgt"/>
+                <outlet property="popupView" destination="O1j-Yg-DLY" id="8hW-rh-UBq"/>
+                <outlet property="priceButton" destination="tPy-G3-xkd" id="gs8-AB-MLX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="GradientView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O1j-Yg-DLY" userLabel=" Popup View">
+                    <rect key="frame" x="180" y="170" width="240" height="260"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wb-gQ-PJW" userLabel="Close Button">
+                            <rect key="frame" x="3" y="3" width="15" height="18"/>
+                            <state key="normal" image="CloseButton"/>
+                            <connections>
+                                <action selector="close:" destination="-1" eventType="touchUpInside" id="mwb-s6-wyB"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tGw-br-c7y">
+                            <rect key="frame" x="70" y="9" width="100" height="100"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbS-uq-tyZ">
+                            <rect key="frame" x="10" y="110" width="220" height="48"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rmn-fV-WLo">
+                            <rect key="frame" x="10" y="158" width="220" height="19"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O9j-5E-GVV">
+                            <rect key="frame" x="10" y="181" width="43" height="19"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TypeValue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2F1-rI-lFU">
+                            <rect key="frame" x="70" y="181" width="160" height="19"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Genre" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjY-g7-JGE">
+                            <rect key="frame" x="10" y="204" width="47" height="19"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GenreValue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovk-yb-jK4">
+                            <rect key="frame" x="70" y="204" width="160" height="19"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPy-G3-xkd">
+                            <rect key="frame" x="169" y="230" width="65" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="53F-G3-lIs"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="izo-hI-AGB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="openInAppStore:" destination="-1" eventType="touchUpInside" id="Xfb-9z-ia8"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="3wb-gQ-PJW" firstAttribute="leading" secondItem="O1j-Yg-DLY" secondAttribute="leading" constant="3" id="8Ag-wp-rDy"/>
+                        <constraint firstAttribute="height" constant="260" id="GHe-cQ-qN9"/>
+                        <constraint firstItem="3wb-gQ-PJW" firstAttribute="top" secondItem="O1j-Yg-DLY" secondAttribute="top" constant="3" id="apF-QJ-YoS"/>
+                        <constraint firstAttribute="bottom" secondItem="tPy-G3-xkd" secondAttribute="bottom" constant="6" id="bLa-So-mfX"/>
+                        <constraint firstAttribute="trailing" secondItem="tPy-G3-xkd" secondAttribute="trailing" constant="6" id="hOS-wF-AJj"/>
+                        <constraint firstAttribute="width" constant="240" id="ygm-Xp-jWA"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="O1j-Yg-DLY" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="MUs-2F-n6w"/>
+                <constraint firstItem="O1j-Yg-DLY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="j5g-iz-IWx"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="CloseButton" width="15" height="15"/>
+    </resources>
+</document>

@@ -29,6 +29,7 @@
 - (void)configureForSearchResult:(SearchResult *)searchResult {
     self.nameLabel.text = searchResult.name ? searchResult.name : @"unknown";
     [self.artworkImageView setImageWithURL:[NSURL URLWithString:searchResult.artworkURL100] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
+    self.artworkImageView.layer.cornerRadius = 5;
     
 //    if ([searchResult.kind isEqualToString:@"song"] || [searchResult.kind isEqualToString:@"music-video"]) {
 //        self.artistNameLabel.text = [NSString stringWithFormat:@"%@(%@)",searchResult.artistName, searchResult.genres[0]];
