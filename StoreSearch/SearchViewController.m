@@ -10,6 +10,8 @@
 #import "SearchResult.h"
 #import "SearchResultCell.h"
 #import "DetailViewController.h"
+#import "LandscapeViewController.h"
+#import "Search.h"
 #import <AFNetworking/AFNetworking.h>
 
 static NSString * const SearchResultCellIdentifier = @"SearchResultCell";
@@ -22,6 +24,8 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, weak) IBOutlet UISegmentedControl *segmentedContol;
 
+@property (nonatomic, strong) Search *search;
+
 @end
 
 @implementation SearchViewController
@@ -29,6 +33,9 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     NSMutableArray *_searchResults;
     BOOL _isLoading;
     NSOperationQueue *_queue;
+    LandscapeViewController *_landscapeViewController;
+    UIStatusBarStyle _statusBarStyle;
+    DetailViewController *_detailViewController;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -42,6 +49,7 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     [super viewDidLoad];
     
     self.view.layer.cornerRadius = 10;
+    _statusBarStyle = UIStatusBarStyleDefault;
     
     [self.searchBar becomeFirstResponder];
     
@@ -83,28 +91,9 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     
     NSString *encodedText = [text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
     
-    NSURL *searchURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&country=cn&entity=%@&limit=30", encodedText, categoryName]];
+    NSURL *searchURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&country=cn&entity=%@&limit=50", encodedText, categoryName]];
     return searchURL;
 }
-
-//- (NSString *)performStoreRequestWithURL:(NSURL *)url {
-//    NSError *error;
-//    NSString *string = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
-//    if (string == nil) {
-//        NSLog(@"Search Error: '%@'", error);
-//    }
-//    return string;
-//} 
-//
-//- (NSDictionary *)parseJSON:(NSString *)jsonString {
-//    NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-//    NSError *error;
-//    id resultObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-//    if (resultObject == nil) {
-//        NSLog(@"Parse Error: '%@'", error);
-//    }
-//    return resultObject;
-//}
 
 - (void)showNetworkError {
     UIAlertController *alert =[UIAlertController alertControllerWithTitle:@"Error" 
@@ -212,6 +201,128 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     }
 }
 
+// This method is for iOS less than iOS 8.
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
+        [self hideLandscapeViewWithDuration:duration];
+    } else {
+        [self showLandscapeViewWithDuration:duration];
+    }
+
+}
+
+- (UIInterfaceOrientation)orientationFromTransform:(CGAffineTransform)transform {
+    // This method comes from [here](http://blog.inferis.org/blog/2015/04/27/ios8-and-interfaceorientation/)
+    
+    CGFloat angle = atan2f(transform.b, transform.a);
+    NSInteger multiplier = (NSInteger)roundf(angle / M_PI_2);
+    
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    
+    if (multiplier < 0) {
+        // clockwise rotation
+        while (multiplier++ < 0) {
+            switch (orientation) {
+                case UIInterfaceOrientationPortrait:
+                    orientation = UIInterfaceOrientationLandscapeLeft;
+                    break;
+                case UIInterfaceOrientationLandscapeLeft:
+                    orientation = UIInterfaceOrientationPortraitUpsideDown;
+                    break;
+                case UIInterfaceOrientationPortraitUpsideDown:
+                    orientation = UIInterfaceOrientationLandscapeRight;
+                    break;
+                case UIInterfaceOrientationLandscapeRight:
+                    orientation = UIInterfaceOrientationPortrait;
+                    break;
+                default:
+                    break;
+            }
+        }
+    } else if (multiplier > 0) {
+        // counter-clockwise rotation
+        while (multiplier-- > 0) {
+            switch (orientation) {
+                case UIInterfaceOrientationPortrait:
+                    orientation = UIInterfaceOrientationLandscapeRight;
+                    break;
+                case UIInterfaceOrientationLandscapeRight:
+                    orientation = UIInterfaceOrientationPortraitUpsideDown;
+                    break;
+                case UIInterfaceOrientationPortraitUpsideDown:
+                    orientation = UIInterfaceOrientationLandscapeLeft;
+                    break;
+                case UIInterfaceOrientationLandscapeLeft:
+                    orientation = UIInterfaceOrientationPortrait;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+    
+    return orientation;
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    if (UIInterfaceOrientationIsPortrait([self orientationFromTransform:[coordinator targetTransform]])) {
+        [self hideLandscapeViewWithDuration:0.3];
+    } else {
+        [self showLandscapeViewWithDuration:0.3];
+    }
+}
+
+- (void)hideLandscapeViewWithDuration:(NSTimeInterval)duration {
+    if (_landscapeViewController) {
+        [self.searchBar becomeFirstResponder];
+        [_landscapeViewController willMoveToParentViewController:nil];
+        
+        [UIView animateWithDuration:duration animations:^{
+            _landscapeViewController.view.alpha = 0;
+            _statusBarStyle = UIStatusBarStyleDefault;
+            [self setNeedsStatusBarAppearanceUpdate];
+        } completion:^(BOOL finished) {
+            [_landscapeViewController.view removeFromSuperview];
+            [_landscapeViewController removeFromParentViewController];
+            _landscapeViewController = nil;
+        }];
+    }
+}
+
+- (void)showLandscapeViewWithDuration:(NSTimeInterval)duration {
+    if (!_landscapeViewController) {
+        [_detailViewController dismissFromParentViewController];
+        [self.searchBar resignFirstResponder];
+        
+        _landscapeViewController = [[LandscapeViewController alloc] initWithNibName:@"LandscapeViewController" bundle:nil];
+        _landscapeViewController.view.frame = self.view.bounds;
+        _landscapeViewController.view.alpha = 0;
+        _landscapeViewController.searchResults = _searchResults;
+        
+        [self.view addSubview:_landscapeViewController.view];
+        [self addChildViewController:_landscapeViewController];
+        
+        [UIView animateWithDuration:duration animations:^{
+            _landscapeViewController.view.alpha = 1;
+            _statusBarStyle = UIStatusBarStyleLightContent;
+            [self setNeedsStatusBarAppearanceUpdate];
+        } completion:^(BOOL finished) {
+            [_landscapeViewController didMoveToParentViewController:self];
+        }];
+    }
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return _statusBarStyle;
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return NO;
+}
+
+
 #pragma mark - IBAction
 
 - (IBAction)segmentChanged:(UISegmentedControl *)sender {
@@ -226,9 +337,9 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self.searchBar resignFirstResponder];
     
-    DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
-    detailViewController.searchResult = (SearchResult *)_searchResults[indexPath.row];
-    [detailViewController presentInParentViewController:self];
+    _detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    _detailViewController.searchResult = (SearchResult *)_searchResults[indexPath.row];
+    [_detailViewController presentInParentViewController:self];
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -280,57 +391,7 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self performSearch];
-        
-//        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-//        dispatch_async(queue, ^{
-//            NSURL *url = [self urlWithSearchText:searchBar.text];
-//            NSString *jsonString = [self performStoreRequestWithURL:url];
-//            if (jsonString == nil) {
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    [self showNetworkError];
-//                });
-//                return;
-//            }
-//            
-//            NSDictionary *dictionary = [self parseJSON:jsonString];
-//            if (dictionary == nil) {
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    [self showNetworkError];
-//                });
-//                return;
-//            }
-//            
-//            [self parseDictionary:dictionary];
-//            
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                _isLoading = NO;
-//                [self.tableView reloadData];
-//            });
-//        });
-    
 }
-
-//- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-//    _searchResults = nil;
-//    NSLog(@"lll");
-//    [self.tableView reloadData]; 
-//}
-//
-//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-//    if ([searchText length] == 0) {
-//        _searchResults = nil;
-//        [self.tableView reloadData];
-//    }
-//}
-
-//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-//    if ([searchText length] == 0) {
-//        []
-//        if (!_isLoading) {
-//            <#statements#>
-//        }
-//    }
-//}
 
 - (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
     return UIBarPositionTopAttached;

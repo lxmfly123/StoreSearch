@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3BA656EB9144098ABA2BEA4C /* libPods-StoreSearch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57157DC3EB950D25193E1D02 /* libPods-StoreSearch.a */; };
+		D92649791BFF26010000FF9F /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = D92649781BFF26010000FF9F /* Search.m */; };
 		D93257FD1BF16DB50061EB12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D93257FC1BF16DB50061EB12 /* main.m */; };
 		D93258001BF16DB50061EB12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D93257FF1BF16DB50061EB12 /* AppDelegate.m */; };
 		D93258081BF16DB50061EB12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D93258071BF16DB50061EB12 /* Assets.xcassets */; };
@@ -41,6 +42,8 @@
 		479947DB118EEE6765AB9AF3 /* Pods-StoreSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StoreSearch/Pods-StoreSearch.debug.xcconfig"; sourceTree = "<group>"; };
 		5296521CE507A64C79155715 /* Pods-StoreSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreSearch.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoreSearch/Pods-StoreSearch.release.xcconfig"; sourceTree = "<group>"; };
 		57157DC3EB950D25193E1D02 /* libPods-StoreSearch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoreSearch.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D92649771BFF26010000FF9F /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
+		D92649781BFF26010000FF9F /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Search.m; sourceTree = "<group>"; };
 		D93257F81BF16DB50061EB12 /* StoreSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93257FC1BF16DB50061EB12 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D93257FE1BF16DB50061EB12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 			children = (
 				D93257FE1BF16DB50061EB12 /* AppDelegate.h */,
 				D93257FF1BF16DB50061EB12 /* AppDelegate.m */,
+				D92649771BFF26010000FF9F /* Search.h */,
+				D92649781BFF26010000FF9F /* Search.m */,
 				D93258251BF18FDD0061EB12 /* SearchResult.h */,
 				D93258261BF18FDD0061EB12 /* SearchResult.m */,
 				D93258201BF16E9B0061EB12 /* SearchViewController.h */,
@@ -146,8 +151,8 @@
 				D9FB3C2C1BF5E73C004F9EF0 /* GradientView.h */,
 				D9FB3C2D1BF5E73C004F9EF0 /* GradientView.m */,
 				D93258071BF16DB50061EB12 /* Assets.xcassets */,
-				D9A451D61BFB26FA000438F6 /* LandscapeViewController.xib */,
 				D93258221BF16E9B0061EB12 /* SearchViewController.xib */,
+				D9A451D61BFB26FA000438F6 /* LandscapeViewController.xib */,
 				D9EB16E21BF1A0130072E4B6 /* SearchResultCell.xib */,
 				D96ACF521BF1CF6500CF540F /* NothingFoundCell.xib */,
 				D95B54A41BF40D8700C1EC34 /* LoadingCell.xib */,
@@ -334,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D92649791BFF26010000FF9F /* Search.m in Sources */,
 				D93258001BF16DB50061EB12 /* AppDelegate.m in Sources */,
 				D93258231BF16E9B0061EB12 /* SearchViewController.m in Sources */,
 				D96ACF511BF1CC7000CF540F /* SearchResultCell.m in Sources */,
