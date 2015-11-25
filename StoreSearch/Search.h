@@ -11,8 +11,11 @@
 @interface Search : NSObject
 
 @property (nonatomic, assign) BOOL isLoading;
-@property (nonatomic, readonly, strong) NSArray *searchResult;
+@property (nonatomic, readonly, strong) NSMutableArray *searchResults;
+@property (nonatomic, copy) NSString *test;
 
-- (void)performSearchForText:(NSString *)text category:(NSInteger)category;
+typedef void (^SearchBlock)(BOOL success);
+
+- (void)performSearchForText:(NSString *)text category:(NSInteger)category completion:(SearchBlock)block;
 
 @end

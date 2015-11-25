@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class Search;
+
 @interface LandscapeViewController : UIViewController
+
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
+@property (strong, nonatomic) Search *search;
 
-@property (copy, nonatomic) NSArray *searchResults;
+
+- (void)searchResultsReceived;
+
 @end

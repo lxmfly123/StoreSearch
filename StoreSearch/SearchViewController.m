@@ -30,20 +30,19 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 
 @implementation SearchViewController
 {
-    NSMutableArray *_searchResults;
-    BOOL _isLoading;
-    NSOperationQueue *_queue;
+    Search *_search;
+    
     LandscapeViewController *_landscapeViewController;
     UIStatusBarStyle _statusBarStyle;
     DetailViewController *_detailViewController;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        _queue = [NSOperationQueue new];
-    }
-    return self;
-}
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+//    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+//        _queue = [NSOperationQueue new];
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -74,26 +73,25 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 
 #pragma mark - Logic
 
-- (NSURL *)urlWithSearchText:(NSString *)text category:(NSInteger)category {
-    NSString *categoryName;
-    switch (category) {
-        case 0:
-            categoryName = @"software";
-            break;
-            
-        case 1:
-            categoryName = @"musicTrack";
-            break;
-            
-        default:
-            break;
-    }
+- (void)performSearch {
+    _search = [[Search alloc] init];
     
-    NSString *encodedText = [text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
+    [_search performSearchForText:self.searchBar.text 
+                         category:self.segmentedContol.selectedSegmentIndex 
+                       completion:^(BOOL success) {
+                           if (!success) {
+                               [self showNetworkError];
+                           }
+                           [_landscapeViewController searchResultsReceived]; 
+                           [self.tableView reloadData];
+                       }
+     ];
     
-    NSURL *searchURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&country=cn&entity=%@&limit=50", encodedText, categoryName]];
-    return searchURL;
+    [self.tableView reloadData];
+    [self.searchBar resignFirstResponder];
 }
+
+
 
 - (void)showNetworkError {
     UIAlertController *alert =[UIAlertController alertControllerWithTitle:@"Error" 
@@ -106,100 +104,9 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-- (void)parseDictionary:(NSDictionary *)dictionary {
-    NSArray *array = dictionary[@"results"];
-    
-    if (array == nil) {
-        [self showNetworkError];
-        return;
-    }
-    
-    for (NSDictionary *resultDictionary in array) {
-        SearchResult *searchResult;
-        
-        NSString *wrapperType = resultDictionary[@"wrapperType"];
-        
-        if ([wrapperType isEqualToString:@"software"]) { 
-            searchResult = [self parseApp:resultDictionary];
-            [_searchResults addObject:searchResult];
-        } else if ([wrapperType isEqualToString:@"track"]) {
-            searchResult = [self parseMusic:resultDictionary];
-            [_searchResults addObject:searchResult];
-        }
-    }
-}
 
-- (SearchResult *)parseApp:(NSDictionary *)resultDictionary {
-    SearchResult *searchResult = [SearchResult new];
-    
-    searchResult.name = resultDictionary[@"trackCensoredName"];
-    searchResult.artistName = resultDictionary[@"artistName"];
-    searchResult.artworkURL60 = resultDictionary[@"artworkUrl60"];
-    searchResult.artworkURL100 = resultDictionary[@"artworkUrl100"];
-    searchResult.artworkURL512 = resultDictionary[@"artworkUrl512"];
-    searchResult.trackViewUrl = resultDictionary[@"trackViewUrl"];
-    searchResult.kind = resultDictionary[@"kind"];
-    searchResult.currency = resultDictionary[@"currency"];
-    searchResult.price = resultDictionary[@"formattedPrice"];
-    searchResult.genres = (NSArray *)resultDictionary[@"genres"];
-    searchResult.storeUrl = resultDictionary[@"trackViewUrl"];
-//    searchResult.image = [UIImage imageWithData:<#(nonnull NSData *)#>]
-    
-    return searchResult;
-}
 
-- (SearchResult *)parseMusic:(NSDictionary *)resultDictionary {
-    SearchResult *searchResult = [SearchResult new];
-    
-    searchResult.name = resultDictionary[@"trackCensoredName"];
-    searchResult.artistName = resultDictionary[@"artistName"];
-    searchResult.artworkURL60 = resultDictionary[@"artworkUrl60"];
-    searchResult.artworkURL100 = resultDictionary[@"artworkUrl100"];
-    searchResult.trackViewUrl = resultDictionary[@"trackViewUrl"];
-    searchResult.kind = resultDictionary[@"kind"];
-    searchResult.currency = resultDictionary[@"currency"];
-    searchResult.price = @"免费";
-    searchResult.genres = @[resultDictionary[@"primaryGenreName"]];
-    searchResult.storeUrl = resultDictionary[@"trackViewUrl"];
-    //    searchResult.image = [UIImage imageWithData:<#(nonnull NSData *)#>]
-    
-    return searchResult;
-}
 
-- (void)performSearch {
-    if ([self.searchBar.text length] > 0) {
-        _isLoading = YES;
-        _searchResults = [NSMutableArray new];
-        [_queue cancelAllOperations];
-        
-        [self.searchBar resignFirstResponder];
-        [self.tableView reloadData];
-        
-        NSURL *url = [self urlWithSearchText:self.searchBar.text category:self.segmentedContol.selectedSegmentIndex];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        
-        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-        operation.responseSerializer = [AFJSONResponseSerializer serializer];
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-            [self parseDictionary:responseObject];
-            _isLoading = NO;
-            
-            [self.tableView reloadData];
-            
-        } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
-            if (operation.isCancelled) {
-                return;
-            }
-            _isLoading = NO;
-            [self.tableView reloadData];
-        }];
-        
-        [_queue addOperation:operation];
-    } else {
-        _searchResults = nil;
-        [self.tableView reloadData];
-    }
-}
 
 // This method is for iOS less than iOS 8.
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
@@ -299,7 +206,8 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
         _landscapeViewController = [[LandscapeViewController alloc] initWithNibName:@"LandscapeViewController" bundle:nil];
         _landscapeViewController.view.frame = self.view.bounds;
         _landscapeViewController.view.alpha = 0;
-        _landscapeViewController.searchResults = _searchResults;
+//        _landscapeViewController.searchResults = _searchResults;
+        _landscapeViewController.search = _search;
         
         [self.view addSubview:_landscapeViewController.view];
         [self addChildViewController:_landscapeViewController];
@@ -326,9 +234,9 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 #pragma mark - IBAction
 
 - (IBAction)segmentChanged:(UISegmentedControl *)sender {
-    
-    [self performSearch];
-    NSLog(@"segment changed: %ld", sender.selectedSegmentIndex);
+    if (_search) {
+        [self performSearch];
+    }
 }
 
 #pragma mark - TableViewDelegate
@@ -338,12 +246,12 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
     [self.searchBar resignFirstResponder];
     
     _detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
-    _detailViewController.searchResult = (SearchResult *)_searchResults[indexPath.row];
+    _detailViewController.searchResult = (SearchResult *)_search.searchResults[indexPath.row];
     [_detailViewController presentInParentViewController:self];
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    if ([_searchResults count] > 0) {
+    if ([_search.searchResults count] > 0) {
         return indexPath;
     }
     return nil; 
@@ -352,36 +260,33 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 #pragma mark - TableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (_isLoading) {
+    if (!_search) {
+        return 0;
+    } else if (_search.isLoading) {
         return 1;
-    }
-    
-    if (_searchResults) {
-        if ([_searchResults count] == 0) {
-            return 1;
-        }
-        return [_searchResults count];
+    } else if ([_search.searchResults count] == 0) {
+        return 1;
+    } else {
+        return [_search.searchResults count];
     }
     
     return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (_isLoading) {
+    if (_search.isLoading) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LoadingCellIdentifier];
         UIActivityIndicatorView *spinner = (UIActivityIndicatorView *)[cell viewWithTag:100];
         [spinner startAnimating];
         
-        _isLoading = NO;
-        
         return cell;
     }
     
-    if ([_searchResults count] == 0) {
+    if ([_search.searchResults count] == 0) {
         return [tableView dequeueReusableCellWithIdentifier:NothingFoundCellIdentifier];
     } else {
         SearchResultCell *cell = [tableView dequeueReusableCellWithIdentifier:SearchResultCellIdentifier];
-        SearchResult *searchResult = (SearchResult *)_searchResults[indexPath.row];
+        SearchResult *searchResult = (SearchResult *)_search.searchResults[indexPath.row];
         [cell configureForSearchResult:searchResult];
         return cell;
     }
@@ -396,15 +301,5 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 - (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
     return UIBarPositionTopAttached;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

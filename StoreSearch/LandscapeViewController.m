@@ -7,7 +7,9 @@
 //
 
 #import "LandscapeViewController.h"
+#import "DetailViewController.h"
 #import "SearchResult.h"
+#import "Search.h"
 #import <AFNetworking/UIButton+AFNetworking.h>
 
 @interface LandscapeViewController () <UIScrollViewDelegate>
@@ -43,7 +45,16 @@
     
     if (_isFirstTime) {
         _isFirstTime =  NO;
-        [self titleButtons];
+        
+        if (self.search) {
+            if (self.search.isLoading) {
+                [self showSpinner];
+            } else if ([self.search.searchResults count] == 0) {
+                [self showNothingFoundLabel];
+            } else {
+                [self titleButtons];
+            }
+        }
     }
 }
 
@@ -100,12 +111,13 @@
     int row = 0;
     int column = 0;
     
-    for (SearchResult *searchResult in self.searchResults) {
+    for (SearchResult *searchResult in self.search.searchResults) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setBackgroundImage:[UIImage imageNamed:@"LandscapeButton"] forState:UIControlStateNormal];
         [self downloadImageForSearchResult:searchResult andPlaceOnButton:button];
         button.frame = CGRectMake(x + marginHorz, 20.0f + row*itemHeight + marginVert, buttonWidth, buttonHeight);
-//        [button setImage:[UIImage imageNamed:@"CloseButton"] forState:UIControlStateNormal];
+        button.tag = 2000 + index;
+        [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollView addSubview:button];
         
         index++;
@@ -125,10 +137,41 @@
     }
     
     int tilesPerPage = columnsPerPage * 3;
-    int numPages = ceilf([self.searchResults count] / (float)tilesPerPage); 
+    int numPages = ceilf([self.search.searchResults count] / (float)tilesPerPage); 
     self.scrollView.contentSize = CGSizeMake(numPages * scrollViewWidth, self.scrollView.bounds.size.height);
     self.pageControl.numberOfPages = numPages;
     self.pageControl.currentPage = 0;
+}
+
+- (void)showSpinner {
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    spinner.center = self.view.center;
+    spinner.tag = 1000;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
+    
+}
+
+- (void)showNothingFoundLabel {
+    UILabel *nothingFoundLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    nothingFoundLabel.text = @"Nothing Found.";
+    nothingFoundLabel.textColor = [UIColor whiteColor];
+    nothingFoundLabel.backgroundColor = [UIColor clearColor];
+    
+    [nothingFoundLabel sizeToFit];
+    
+    nothingFoundLabel.center = self.view.center;
+    [self.view addSubview:nothingFoundLabel];
+}
+
+- (void)searchResultsReceived {
+    [[self.view viewWithTag:1000] removeFromSuperview];
+    
+    if ([self.search.searchResults count] == 0) {
+        [self showNothingFoundLabel];
+    } else {
+        [self titleButtons];
+    }
 }
 
 #pragma mark - IBAction
@@ -137,6 +180,12 @@
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.scrollView.contentOffset = CGPointMake(sender.currentPage * self.scrollView.bounds.size.width, 0);
     } completion:nil];
+}
+
+- (void)buttonPressed:(UIButton *)sender {
+    DetailViewController *controller = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    controller.searchResult = [self.search.searchResults objectAtIndex:sender.tag - 2000];
+    [controller presentInParentViewController:self];
 }
 
 #pragma mark - UIScrollViewDelegate
