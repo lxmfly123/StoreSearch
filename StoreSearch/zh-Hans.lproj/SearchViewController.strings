@@ -1,0 +1,9 @@
+
+/* Class = "UISegmentedControl"; DXW-YE-YbG.segmentTitles[0] = "Apps"; ObjectID = "DXW-YE-YbG"; */
+"DXW-YE-YbG.segmentTitles[0]" = "应用";
+
+/* Class = "UISegmentedControl"; DXW-YE-YbG.segmentTitles[1] = "Music"; ObjectID = "DXW-YE-YbG"; */
+"DXW-YE-YbG.segmentTitles[1]" = "音乐";
+
+/* Class = "UISearchBar"; placeholder = "App name, artist, song, album, ebook"; ObjectID = "wg9-VK-AgL"; */
+"wg9-VK-AgL.placeholder" = "应用, 艺人, 歌曲, 专辑, 书籍";

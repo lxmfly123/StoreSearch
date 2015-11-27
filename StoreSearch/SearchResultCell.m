@@ -27,7 +27,7 @@
 }
 
 - (void)configureForSearchResult:(SearchResult *)searchResult {
-    self.nameLabel.text = searchResult.name ? searchResult.name : @"unknown";
+    self.nameLabel.text = searchResult.name ? searchResult.name : NSLocalizedString(@"Unknown", @"Unknow Artist Name");
     [self.artworkImageView setImageWithURL:[NSURL URLWithString:searchResult.artworkURL100] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
     self.artworkImageView.layer.cornerRadius = 5;
     

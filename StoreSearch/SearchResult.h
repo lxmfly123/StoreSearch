@@ -22,4 +22,6 @@
 @property (nonatomic, copy) NSArray *genres;
 @property (nonatomic, copy) NSString *storeUrl;
 
+- (NSString *)kindForDisplay;
+
 @end

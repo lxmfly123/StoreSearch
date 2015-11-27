@@ -94,11 +94,14 @@ static NSString * const LoadingCellIdentifier = @"LoadingCell";
 
 
 - (void)showNetworkError {
-    UIAlertController *alert =[UIAlertController alertControllerWithTitle:@"Error" 
-                                                                  message:@"There is a error in your network." 
+    NSString *title = NSLocalizedString(@"Error", @"Network Error Message Title");
+    NSString *message = NSLocalizedString(@"There is a error in your network.", @"Network Error Message.");
+    NSString *okButton = NSLocalizedString(@"OK", @"OK Button Text");
+    UIAlertController *alert =[UIAlertController alertControllerWithTitle:title 
+                                                                  message:message  
                                                            preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *cancleAlert = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancleAlert = [UIAlertAction actionWithTitle:okButton style:UIAlertActionStyleCancel handler:nil];
     [alert addAction:cancleAlert];
     
     [self presentViewController:alert animated:YES completion:nil];

@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "TypeValue"; ObjectID = "2F1-rI-lFU"; */
+"2F1-rI-lFU.text" = "类型值";
+
+/* Class = "UILabel"; text = "Type"; ObjectID = "O9j-5E-GVV"; */
+"O9j-5E-GVV.text" = "类型";
+
+/* Class = "UILabel"; text = "Artist"; ObjectID = "Rmn-fV-WLo"; */
+"Rmn-fV-WLo.text" = "艺术家";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "YbS-uq-tyZ"; */
+"YbS-uq-tyZ.text" = "名字";
+
+/* Class = "UILabel"; text = "Genre"; ObjectID = "kjY-g7-JGE"; */
+"kjY-g7-JGE.text" = "流派";
+
+/* Class = "UILabel"; text = "GenreValue"; ObjectID = "ovk-yb-jK4"; */
+"ovk-yb-jK4.text" = "流派值";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "tPy-G3-xkd"; */
+"tPy-G3-xkd.normalTitle" = "按钮";

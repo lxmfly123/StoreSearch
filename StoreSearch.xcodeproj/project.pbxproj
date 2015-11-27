@@ -15,16 +15,17 @@
 		D932580B1BF16DB50061EB12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93258091BF16DB50061EB12 /* LaunchScreen.storyboard */; };
 		D93258161BF16DB50061EB12 /* StoreSearchUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D93258151BF16DB50061EB12 /* StoreSearchUITests.m */; };
 		D93258231BF16E9B0061EB12 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D93258211BF16E9B0061EB12 /* SearchViewController.m */; };
-		D93258241BF16E9B0061EB12 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93258221BF16E9B0061EB12 /* SearchViewController.xib */; };
 		D93258271BF18FDD0061EB12 /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D93258261BF18FDD0061EB12 /* SearchResult.m */; };
-		D95B54A51BF40D8700C1EC34 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D95B54A41BF40D8700C1EC34 /* LoadingCell.xib */; };
+		D93DE82E1C06BBDA00A5B470 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93DE8301C06BBDA00A5B470 /* SearchResultCell.xib */; };
+		D93DE8331C06BC0E00A5B470 /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93DE8351C06BC0E00A5B470 /* NothingFoundCell.xib */; };
+		D93DE8381C06BC3100A5B470 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93DE83A1C06BC3100A5B470 /* LoadingCell.xib */; };
+		D93DE83D1C06BC9500A5B470 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93DE83F1C06BC9500A5B470 /* SearchViewController.xib */; };
+		D93DE8421C06BEA600A5B470 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93DE8441C06BEA600A5B470 /* DetailViewController.xib */; };
+		D93DE8471C06C00500A5B470 /* LandscapeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D93DE8491C06C00500A5B470 /* LandscapeViewController.xib */; };
+		D93DE84E1C084ADF00A5B470 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D93DE84C1C084ADF00A5B470 /* Localizable.strings */; };
 		D96ACF511BF1CC7000CF540F /* SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D96ACF501BF1CC6F00CF540F /* SearchResultCell.m */; };
-		D96ACF531BF1CF6500CF540F /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D96ACF521BF1CF6500CF540F /* NothingFoundCell.xib */; };
 		D9A451D71BFB26FA000438F6 /* LandscapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A451D51BFB26FA000438F6 /* LandscapeViewController.m */; };
-		D9A451D81BFB26FA000438F6 /* LandscapeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9A451D61BFB26FA000438F6 /* LandscapeViewController.xib */; };
-		D9EB16E31BF1A0130072E4B6 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9EB16E21BF1A0130072E4B6 /* SearchResultCell.xib */; };
 		D9F539FF1BF575BF00FC6484 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F539FD1BF575BF00FC6484 /* DetailViewController.m */; };
-		D9F53A001BF575BF00FC6484 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9F539FE1BF575BF00FC6484 /* DetailViewController.xib */; };
 		D9FB3C2E1BF5E73C004F9EF0 /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = D9FB3C2D1BF5E73C004F9EF0 /* GradientView.m */; };
 /* End PBXBuildFile section */
 
@@ -56,20 +57,29 @@
 		D93258171BF16DB50061EB12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D93258201BF16E9B0061EB12 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		D93258211BF16E9B0061EB12 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		D93258221BF16E9B0061EB12 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		D93258251BF18FDD0061EB12 /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
 		D93258261BF18FDD0061EB12 /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
-		D95B54A41BF40D8700C1EC34 /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
+		D93DE82D1C06BB7200A5B470 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		D93DE82F1C06BBDA00A5B470 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchResultCell.xib; sourceTree = "<group>"; };
+		D93DE8321C06BBE000A5B470 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SearchResultCell.strings"; sourceTree = "<group>"; };
+		D93DE8341C06BC0E00A5B470 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NothingFoundCell.xib; sourceTree = "<group>"; };
+		D93DE8371C06BC1700A5B470 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/NothingFoundCell.strings"; sourceTree = "<group>"; };
+		D93DE8391C06BC3100A5B470 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoadingCell.xib; sourceTree = "<group>"; };
+		D93DE83C1C06BC3400A5B470 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LoadingCell.strings"; sourceTree = "<group>"; };
+		D93DE83E1C06BC9500A5B470 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SearchViewController.xib; sourceTree = "<group>"; };
+		D93DE8411C06BC9900A5B470 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SearchViewController.strings"; sourceTree = "<group>"; };
+		D93DE8431C06BEA600A5B470 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DetailViewController.xib; sourceTree = "<group>"; };
+		D93DE8461C06BEA900A5B470 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/DetailViewController.strings"; sourceTree = "<group>"; };
+		D93DE8481C06C00500A5B470 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LandscapeViewController.xib; sourceTree = "<group>"; };
+		D93DE84B1C06C00B00A5B470 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LandscapeViewController.strings"; sourceTree = "<group>"; };
+		D93DE84D1C084ADF00A5B470 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D93DE84F1C084FFD00A5B470 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D96ACF4F1BF1CC6F00CF540F /* SearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultCell.h; sourceTree = "<group>"; };
 		D96ACF501BF1CC6F00CF540F /* SearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultCell.m; sourceTree = "<group>"; };
-		D96ACF521BF1CF6500CF540F /* NothingFoundCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NothingFoundCell.xib; sourceTree = "<group>"; };
 		D9A451D41BFB26FA000438F6 /* LandscapeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandscapeViewController.h; sourceTree = "<group>"; };
 		D9A451D51BFB26FA000438F6 /* LandscapeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandscapeViewController.m; sourceTree = "<group>"; };
-		D9A451D61BFB26FA000438F6 /* LandscapeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandscapeViewController.xib; sourceTree = "<group>"; };
-		D9EB16E21BF1A0130072E4B6 /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		D9F539FC1BF575BF00FC6484 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		D9F539FD1BF575BF00FC6484 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		D9F539FE1BF575BF00FC6484 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		D9FB3C2B1BF5BEB5004F9EF0 /* my.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = my.pch; sourceTree = "<group>"; };
 		D9FB3C2C1BF5E73C004F9EF0 /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
 		D9FB3C2D1BF5E73C004F9EF0 /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
@@ -151,12 +161,12 @@
 				D9FB3C2C1BF5E73C004F9EF0 /* GradientView.h */,
 				D9FB3C2D1BF5E73C004F9EF0 /* GradientView.m */,
 				D93258071BF16DB50061EB12 /* Assets.xcassets */,
-				D93258221BF16E9B0061EB12 /* SearchViewController.xib */,
-				D9A451D61BFB26FA000438F6 /* LandscapeViewController.xib */,
-				D9EB16E21BF1A0130072E4B6 /* SearchResultCell.xib */,
-				D96ACF521BF1CF6500CF540F /* NothingFoundCell.xib */,
-				D95B54A41BF40D8700C1EC34 /* LoadingCell.xib */,
-				D9F539FE1BF575BF00FC6484 /* DetailViewController.xib */,
+				D93DE83F1C06BC9500A5B470 /* SearchViewController.xib */,
+				D93DE8491C06C00500A5B470 /* LandscapeViewController.xib */,
+				D93DE8301C06BBDA00A5B470 /* SearchResultCell.xib */,
+				D93DE8351C06BC0E00A5B470 /* NothingFoundCell.xib */,
+				D93DE83A1C06BC3100A5B470 /* LoadingCell.xib */,
+				D93DE8441C06BEA600A5B470 /* DetailViewController.xib */,
 				D93258091BF16DB50061EB12 /* LaunchScreen.storyboard */,
 				D932580C1BF16DB50061EB12 /* Info.plist */,
 				D93257FB1BF16DB50061EB12 /* Supporting Files */,
@@ -167,6 +177,7 @@
 		D93257FB1BF16DB50061EB12 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D93DE84C1C084ADF00A5B470 /* Localizable.strings */,
 				D93257FC1BF16DB50061EB12 /* main.m */,
 				D9FB3C2B1BF5BEB5004F9EF0 /* my.pch */,
 			);
@@ -249,6 +260,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = D93257EF1BF16DB50061EB12;
 			productRefGroup = D93257F91BF16DB50061EB12 /* Products */;
@@ -268,12 +280,13 @@
 			files = (
 				D932580B1BF16DB50061EB12 /* LaunchScreen.storyboard in Resources */,
 				D93258081BF16DB50061EB12 /* Assets.xcassets in Resources */,
-				D9F53A001BF575BF00FC6484 /* DetailViewController.xib in Resources */,
-				D95B54A51BF40D8700C1EC34 /* LoadingCell.xib in Resources */,
-				D9EB16E31BF1A0130072E4B6 /* SearchResultCell.xib in Resources */,
-				D96ACF531BF1CF6500CF540F /* NothingFoundCell.xib in Resources */,
-				D9A451D81BFB26FA000438F6 /* LandscapeViewController.xib in Resources */,
-				D93258241BF16E9B0061EB12 /* SearchViewController.xib in Resources */,
+				D93DE8421C06BEA600A5B470 /* DetailViewController.xib in Resources */,
+				D93DE8381C06BC3100A5B470 /* LoadingCell.xib in Resources */,
+				D93DE84E1C084ADF00A5B470 /* Localizable.strings in Resources */,
+				D93DE82E1C06BBDA00A5B470 /* SearchResultCell.xib in Resources */,
+				D93DE8331C06BC0E00A5B470 /* NothingFoundCell.xib in Resources */,
+				D93DE8471C06C00500A5B470 /* LandscapeViewController.xib in Resources */,
+				D93DE83D1C06BC9500A5B470 /* SearchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,8 +387,72 @@
 			isa = PBXVariantGroup;
 			children = (
 				D932580A1BF16DB50061EB12 /* Base */,
+				D93DE82D1C06BB7200A5B470 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D93DE8301C06BBDA00A5B470 /* SearchResultCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D93DE82F1C06BBDA00A5B470 /* Base */,
+				D93DE8321C06BBE000A5B470 /* zh-Hans */,
+			);
+			name = SearchResultCell.xib;
+			sourceTree = "<group>";
+		};
+		D93DE8351C06BC0E00A5B470 /* NothingFoundCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D93DE8341C06BC0E00A5B470 /* Base */,
+				D93DE8371C06BC1700A5B470 /* zh-Hans */,
+			);
+			name = NothingFoundCell.xib;
+			sourceTree = "<group>";
+		};
+		D93DE83A1C06BC3100A5B470 /* LoadingCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D93DE8391C06BC3100A5B470 /* Base */,
+				D93DE83C1C06BC3400A5B470 /* zh-Hans */,
+			);
+			name = LoadingCell.xib;
+			sourceTree = "<group>";
+		};
+		D93DE83F1C06BC9500A5B470 /* SearchViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D93DE83E1C06BC9500A5B470 /* Base */,
+				D93DE8411C06BC9900A5B470 /* zh-Hans */,
+			);
+			name = SearchViewController.xib;
+			sourceTree = "<group>";
+		};
+		D93DE8441C06BEA600A5B470 /* DetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D93DE8431C06BEA600A5B470 /* Base */,
+				D93DE8461C06BEA900A5B470 /* zh-Hans */,
+			);
+			name = DetailViewController.xib;
+			sourceTree = "<group>";
+		};
+		D93DE8491C06C00500A5B470 /* LandscapeViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D93DE8481C06C00500A5B470 /* Base */,
+				D93DE84B1C06C00B00A5B470 /* zh-Hans */,
+			);
+			name = LandscapeViewController.xib;
+			sourceTree = "<group>";
+		};
+		D93DE84C1C084ADF00A5B470 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D93DE84D1C084ADF00A5B470 /* en */,
+				D93DE84F1C084FFD00A5B470 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

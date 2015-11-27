@@ -81,7 +81,7 @@
     [self.artworkImageView  setImageWithURL:[NSURL URLWithString:searchResult.artworkURL100] placeholderImage:[UIImage imageNamed:@"Placeholder"]];
     self.nameLabel.text = searchResult.name;
     self.artistNameLabel.text = searchResult.artistName;
-    self.kindLabel.text = searchResult.kind;
+    self.kindLabel.text = [searchResult kindForDisplay];
     self.genreLabel.text = searchResult.genres[0];
     [self.priceButton setTitle:searchResult.price forState:UIControlStateNormal];
 }

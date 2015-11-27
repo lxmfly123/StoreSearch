@@ -10,4 +10,18 @@
 
 @implementation SearchResult
 
+- (NSString *)kindForDisplay {
+    if ([self.kind isEqualToString:@"album"]) {
+        return NSLocalizedString(@"Album", @"Localized kind: Album");
+    } else if ([self.kind isEqualToString:@"software"]) {
+        return NSLocalizedString(@"App", @"Localized kind: software");
+    } else if ([self.kind isEqualToString:@"music-video"]) {
+        return NSLocalizedString(@"MV", @"Localized kind: music-video");
+    } else if ([self.kind isEqualToString:@"song"]) {
+        return NSLocalizedString(@"Song", @"Localized kind: song");
+    } else {
+        return self.kind.capitalizedString;
+    }
+}
+
 @end
