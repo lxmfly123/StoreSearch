@@ -74,6 +74,10 @@ static NSOperationQueue *queue = nil;
             break;
     }
     
+//    NSLocale *locale = [NSLocale autoupdatingCurrentLocale];
+//    NSString *language = [locale localeIdentifier];
+//    NSString *countryCode = [locale objectForKey:NSLocaleCountryCode];
+    
     NSString *encodedText = [text stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet alphanumericCharacterSet]];
     
     NSURL *searchURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/search?term=%@&country=cn&entity=%@&limit=50", encodedText, categoryName]];

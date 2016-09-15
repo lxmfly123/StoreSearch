@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  StoreSearch
+
+  Created by FLY.lxm on 11/27/15.
+  Copyright © 2015 FLY.lxm. All rights reserved.
+*/
+
+CFBundleDisplayName = "搜搜";

@@ -21,6 +21,8 @@
 @property (nonatomic, weak) IBOutlet UILabel *genreLabel;
 @property (nonatomic, weak) IBOutlet UIButton *priceButton;
 
+@property (strong, nonatomic) UIPopoverPresentationController *masterPopoverController;
+
 @end
 
 @implementation DetailViewController
@@ -129,7 +131,6 @@
 }
 
 #pragma mark - IBActions
-
 - (IBAction)close:(id)sender {
     [self dismissFromParentViewController];
 }
@@ -158,5 +159,9 @@
 - (void)dealloc {
     [self.artworkImageView cancelImageRequestOperation];
 }
+
+#pragma mark - UISplitViewControllerDelegate
+
+//- (void)
 
 @end
